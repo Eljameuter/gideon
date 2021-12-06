@@ -1,0 +1,21 @@
+#result = requests.get( 
+  #  "https://api-free.deepl.com/v2/translate", 
+  #   params={ 
+  #     "target_lang": target_language, 
+  #     "text": text, 
+  #   }, 
+  #) 
+  #translated_text = result.json()["translations"][0]["text"]
+  # https://www.deepl.com/de/docs-api/
+  #response = openai.Completion.create(
+  # engine="davinci",
+  #  prompt=f"{prompt}",
+  # temperature=0.5,
+  #  max_tokens=100,
+  #  top_p=1.0,
+  #  frequency_penalty=0.5,
+  #  presence_penalty=0.0,
+  #  stop=["###"]
+  #)
+
+  #print(response.choices[0].text)
