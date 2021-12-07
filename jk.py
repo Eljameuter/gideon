@@ -12,7 +12,7 @@ logger = None
 def main(NumberOfTrys = 0):
   logger = configurate_logger()
   #Recognize Input
-  print("Prompt:")
+  speech.speak("Prompt")
   prompt = speech.recognize()
 
   #Validate Input
