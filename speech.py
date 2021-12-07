@@ -1,5 +1,4 @@
 import speech_recognition as sr
-from playsound import playsound
 from gtts import gTTS
 import os
 

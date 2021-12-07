@@ -1,7 +1,5 @@
-import os
 import openai
 import speech
-import requests 
 import keyboard as key
 import logging
 from googletrans import Translator
@@ -14,25 +12,24 @@ logger = None
 def main(NumberOfTrys = 0):
   logger = configurate_logger()
   #Recognize Input
-  speech.speak("Hallo")
-  return
-  print("Prompt:")
+  speech.speak("Prompt")
   prompt = speech.recognize()
 
   #Validate Input
-  print(f"Hast du \"{str(prompt)}\" gesagt? y/n")
-  if(NumberOfTrys > 0): print(f"Noch {totalTrys-NumberOfTrys} Versuche!")
+  speech.speak(f"Hast du \"{str(prompt)}\" gesagt? y/n")
+  if(NumberOfTrys > 0): speech.speak(f"Noch {totalTrys-NumberOfTrys} Versuche!")
   validate(NumberOfTrys)
 
   #Translate
   prompt = translator.translate(str(prompt), src='de', dest='en').text
+  prompt += "\n AI:" # Making a new Line and Adding 'AI: ' to it to make it easier for the ai to understand where the request Ends
 
   #Request
   result = translator.translate(str(tiffany_gideon(prompt)), src='en', dest='de').text 
   speech.speak(result)
 
 def configurate_logger():
-  logging.basicConfig(filename='myapp.log', level=logging.DEBUG, 
+  logging.basicConfig(filename='myapp.log', level=logging.WARNING, 
                     format='%(asctime)s %(levelname)s %(name)s %(message)s')
   return logging.getLogger(__name__)
   
@@ -42,11 +39,11 @@ def tiffany_gideon(prompt):
       engine="davinci",
       prompt=f"{prompt}",
       temperature=0.4,
-      max_tokens=60,
+      max_tokens=100,
       top_p=1.0,
       frequency_penalty=0.5,
       presence_penalty=0.0,
-      stop=["###"]
+      stop=["\n"]
     )
     return response.choices[0].text
   except Exception as e:
