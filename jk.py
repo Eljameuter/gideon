@@ -12,12 +12,14 @@ logger = None
 def main(NumberOfTrys = 0):
   logger = configurate_logger()
   #Recognize Input
-  speech.speak("Prompt")
+  #speech.speak("Prompt")
+  print("Prompt")
   prompt = speech.recognize()
 
   #Validate Input
-  speech.speak(f"Hast du \"{str(prompt)}\" gesagt? y/n")
-  if(NumberOfTrys > 0): speech.speak(f"Noch {totalTrys-NumberOfTrys} Versuche!")
+  #speech.speak(f"Hast du \"{str(prompt)}\" gesagt? y/n")
+  print(f"Hast du \"{str(prompt)}\" gesagt? y/n")
+  if(NumberOfTrys > 0): print(f"Noch {totalTrys-NumberOfTrys} Versuche!")#speech.speak(f"Noch {totalTrys-NumberOfTrys} Versuche!")
   validate(NumberOfTrys)
 
   #Translate
@@ -26,7 +28,7 @@ def main(NumberOfTrys = 0):
 
   #Request
   result = translator.translate(str(tiffany_gideon(prompt)), src='en', dest='de').text 
-  speech.speak(result)
+  #speech.speak(result)
   print(result)
 
 def configurate_logger():
