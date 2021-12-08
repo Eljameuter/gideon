@@ -14,8 +14,8 @@ logger = None
 def main(NumberOfTrys = 0):
   logger = configurate_logger()
   #Recognize Input
-  speech.speak("Hallo")
-  return
+  #speech.speak("Hallo")
+  #nyreturn
   print("Prompt:")
   prompt = speech.recognize()
 
@@ -29,18 +29,19 @@ def main(NumberOfTrys = 0):
 
   #Request
   result = translator.translate(str(tiffany_gideon(prompt)), src='en', dest='de').text 
-  speech.speak(result)
+ # speech.speak(result)
+  print(result)
 
 def configurate_logger():
   logging.basicConfig(filename='myapp.log', level=logging.DEBUG, 
                     format='%(asctime)s %(levelname)s %(name)s %(message)s')
   return logging.getLogger(__name__)
-  
+
 def tiffany_gideon(prompt):
   try:
     response = openai.Completion.create(
       engine="davinci",
-      prompt=f"{prompt}",
+      prompt=f"{prompt}: \n",
       temperature=0.4,
       max_tokens=60,
       top_p=1.0,
