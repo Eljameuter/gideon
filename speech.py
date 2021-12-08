@@ -32,3 +32,5 @@ def speak(text):
     
     # Playing the converted file
     os.system("start result.mp3")
+    # after playing remove file
+   # os.remove("result.mp3")

@@ -38,7 +38,7 @@ def tiffany_gideon(prompt):
   try:
     response = openai.Completion.create(
       engine="davinci",
-      prompt=f"{prompt}: \n",
+      prompt=f"{prompt}: \n AI:",
       temperature=0.4,
       max_tokens=100,
       top_p=1.0,
