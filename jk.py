@@ -24,7 +24,7 @@ def main(NumberOfTrys = 0):
 
   #Translate
   prompt = translator.translate(str(prompt), src='de', dest='en').text
-  prompt += "\n AI:" # Making a new Line and Adding 'AI: ' to it to make it easier for the ai to understand where the request Ends
+  prompt += "\n Philosopher:" # Making a new Line and Adding 'AI: ' to it to make it easier for the ai to understand where the request Ends
 
   #Request
   result = translator.translate(str(tiffany_gideon(prompt)), src='en', dest='de').text 
@@ -40,13 +40,13 @@ def tiffany_gideon(prompt):
   try:
     response = openai.Completion.create(
       engine="davinci",
-      prompt=f"{prompt}: \n AI:",
+      prompt=f"{prompt}:",
       temperature=0.4,
       max_tokens=100,
       top_p=1.0,
       frequency_penalty=0.5,
       presence_penalty=0.0,
-      stop=["\n"]
+      stop=["/n"]
     )
     return response.choices[0].text
   except Exception as e:
