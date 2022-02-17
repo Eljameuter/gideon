@@ -1,4 +1,4 @@
-#Copyright 2021, Elja Meuter, All rights reserved.
+#Copyright 2022, Elja Meuter, All rights reserved.
 
 import openai
 import speech
