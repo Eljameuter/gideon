@@ -5,7 +5,7 @@ import logging
 from googletrans import Translator
 
 translator = Translator()
-openai.api_key = "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"
+openai.api_key = ""
 totalTrys = 3
 logger = None
 
@@ -46,7 +46,7 @@ def tiffany_gideon(prompt):
       top_p=1.0,
       frequency_penalty=0.5,
       presence_penalty=0.0,
-      stop=["/n"]
+      stop=["\n"]
     )
     return response.choices[0].text
   except Exception as e:
