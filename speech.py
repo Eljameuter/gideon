@@ -1,3 +1,5 @@
+#Copyright 2021, Elja Meuter, All rights reserved.
+
 import speech_recognition as sr
 from gtts import gTTS
 import os
