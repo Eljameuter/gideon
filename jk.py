@@ -1,3 +1,5 @@
+#Copyright 2021, Elja Meuter, All rights reserved.
+
 import openai
 import speech
 import keyboard as key
