@@ -1,3 +1,4 @@
+#Authors: Elja Meuter, Michel Paeßens
 #Copyright 2022, Elja Meuter, All rights reserved.
 
 import openai
